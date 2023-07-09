@@ -2,13 +2,13 @@ const Jimp = require("jimp");
 const fs = require("fs-extra");
 const request = require("request");
 const path = require("path");
-const env = require("dotenv");
+const env = require("dotenv").config();
 
 // replace with your TinyPNG API key
 const TINYPNG_API_KEY = process.env.TINYPNG_API_KEY;
 
 async function resizeAndCompressImages() {
-  const folderPath = "./articles-insurance-101s/hero-image/resized"; // replace with your folder path
+  const folderPath = "./events/thumbnail/resized"; // replace with your folder path
   const files = await fs.readdir(folderPath);
 
   for (let file of files) {
